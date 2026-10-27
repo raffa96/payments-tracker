@@ -43,6 +43,24 @@ See the [development guide](docs/development.md) for the full local workflow.
 - Releases follow [Semantic Versioning](https://semver.org/) and are tagged on
   `master` as `vX.Y.Z`.
 
+### Merging pull requests
+
+| Pull request                       | Merge method           |
+| ---------------------------------- | ---------------------- |
+| `feature/*`, `fix/*` → `develop`   | Squash or merge commit |
+| `release/*`, `hotfix/*` → `master` | Merge commit           |
+| `master` → `develop` (back-merge)  | Merge commit           |
+
+- Squashing keeps the history of `develop` readable when a branch contains
+  work-in-progress commits; a merge commit preserves a branch whose commits are
+  already clean and meaningful.
+- Release and hotfix branches are never squashed: `master` and `develop` must
+  share the same commits, otherwise every back-merge would produce conflicts.
+- Rebase merging is disabled.
+- Branches are deleted automatically once their pull request is merged. For this
+  reason, after a release or hotfix is merged into `master` and tagged, its
+  changes reach `develop` through a back-merge pull request from `master`.
+
 ## Commit messages
 
 We follow [Conventional Commits](https://www.conventionalcommits.org/):

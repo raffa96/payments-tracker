@@ -22,9 +22,17 @@ before reaching it.
   authors to approve their own pull requests and the project has a single
   maintainer. This will change when more maintainers join.
 - Commits follow Conventional Commits; versions follow Semantic Versioning.
+- Merge methods: squash or merge commit for `feature/*` and `fix/*` into
+  `develop`; merge commit only for `release/*` and `hotfix/*` into `master` and
+  for the back-merge of `master` into `develop`. Rebase merging is disabled.
+- Head branches are deleted automatically after their pull request is merged.
 
 ## Consequences
 
 - Every change, including the maintainer's, goes through a pull request and the
   CI.
+- `master` and `develop` always share the same commits, so back-merges do not
+  produce conflicts.
+- Because release and hotfix branches are deleted on merge, their changes reach
+  `develop` through a pull request from `master`.
 - The full process is documented in [CONTRIBUTING.md](../../CONTRIBUTING.md).
