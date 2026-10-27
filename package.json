@@ -1,0 +1,53 @@
+{
+  "name": "payments-tracker",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Self-hosted web application to track, month by month, the payments of people sharing a subscription.",
+  "keywords": [
+    "subscriptions",
+    "shared-subscriptions",
+    "payments",
+    "self-hosted",
+    "express"
+  ],
+  "homepage": "https://github.com/raffa96/payments-tracker#readme",
+  "bugs": {
+    "url": "https://github.com/raffa96/payments-tracker/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/raffa96/payments-tracker.git"
+  },
+  "license": "AGPL-3.0-or-later",
+  "author": "Raffaele Tufano",
+  "type": "module",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "start": "node --env-file-if-exists=.env src/server.ts",
+    "dev": "node --watch --env-file-if-exists=.env src/server.ts",
+    "test": "node --test \"test/**/*.test.ts\"",
+    "test:coverage": "node --test --experimental-test-coverage --test-coverage-include=\"src/**\" --test-coverage-exclude=src/server.ts --test-coverage-lines=80 --test-coverage-branches=80 --test-coverage-functions=80 \"test/**/*.test.ts\"",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "typecheck": "tsc --noEmit",
+    "check": "npm run format:check && npm run lint && npm run typecheck && npm run test:coverage"
+  },
+  "dependencies": {
+    "express": "^5.3.0",
+    "helmet": "^8.3.0",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@types/express": "^5.0.6",
+    "@types/node": "^24.19.2",
+    "eslint": "^10.13.0",
+    "prettier": "^3.9.10",
+    "typescript": "~6.0.3",
+    "typescript-eslint": "^8.72.1"
+  }
+}
