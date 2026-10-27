@@ -19,6 +19,7 @@ Closes #<!-- issue number, if any -->
 ## Checklist
 
 - [ ] The branch starts from `develop` and the pull request targets `develop`.
+- [ ] The pull request title follows Conventional Commits (e.g. `feat: add payment form`).
 - [ ] `npm run check` passes locally.
 - [ ] Tests cover the change.
 - [ ] Documentation and README are updated where needed.

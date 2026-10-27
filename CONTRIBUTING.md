@@ -54,6 +54,9 @@ See the [development guide](docs/development.md) for the full local workflow.
 - Squashing keeps the history of `develop` readable when a branch contains
   work-in-progress commits; a merge commit preserves a branch whose commits are
   already clean and meaningful.
+- A squashed pull request becomes a single commit whose message is the pull
+  request title, so **pull request titles must follow
+  [Conventional Commits](#commit-messages)** too.
 - Release and hotfix branches are never squashed: `master` and `develop` must
   share the same commits, otherwise every back-merge would produce conflicts.
 - Rebase merging is disabled.
@@ -110,7 +113,8 @@ keep each commit focused on a single change.
 2. Make your change, with tests and documentation.
 3. Run `npm run check` and make sure it passes.
 4. Update the `Unreleased` section of the [changelog](CHANGELOG.md).
-5. Open a pull request against `develop` and fill in the template.
+5. Open a pull request against `develop`, with a Conventional Commits title,
+   and fill in the template.
 
 ## Licensing of contributions
 
